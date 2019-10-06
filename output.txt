@@ -1,0 +1,4 @@
+12 55 6 23 200 102 600 44 
+The storage strategy being used is document
+12 55 6 23 200 102 600 44 
+The storage strategy being used is node
