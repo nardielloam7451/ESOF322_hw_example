@@ -1,0 +1,77 @@
+public class LinkedList{
+private Node first;
+private Node last;
+	public void LinkedList(){}//constructor for the linked list class 
+	public void addNode(EmployeeRecord node){
+	//takes and adds the a new node to the list. 
+	Node newNode = new node();//sets up a temporary node to store the data.
+	newNode.setData(node);//sets the data for the new node.  
+	if(first==null){
+	//if there is no data in the list, sets the first node equal to the temp node.
+		newNode.setNext(newNode);
+		first=newNode;
+		last=first;
+		}
+		else{//if the list exists, adds the data in between the first and last element.
+			last.setNext(newNode);
+			last=newNode;
+		} 
+	}
+	public EmployeeRecord removeNode(EmployeeRecord key){
+	//takes out a specificed node from the list.
+		Node temp= first;//this is the node we would like to remove.
+		Node prev=null;//this is the iterator which goes through the list keeping track of the node behind it. 
+		if(temp!=null && temp.getData()==key){//if the first node holds the data, simply set the next node to the first one.
+			first=temp.next;
+			return temp.getData();
+		}
+		while(temp!= null&& temp.getData()!=key){//Search for the specific record, while keeping track of the previous nodes
+			prev=temp;
+			temp=temp.getNext();
+			if(temp.getData()==key){//if the data is found, goes through and returns that value while setting the next value in the list
+				prev.setNext(temp.getNext());
+				return temp.getData();
+			}
+		}
+		if(temp==null){return null;}
+		prev.getNext()=temp.getNext();
+	}
+}
+
+
+
+public class Node{
+	private EmployeeRecord employee; 
+	private Node next;
+
+	public Node(){//constructor for the node class
+		this.next=null;	
+	}
+	public void setData(EmployeeRecord data){
+		//sets the data for the node
+		employee=data; 
+	}
+	public Node getData(){
+	//retrives the data from the node
+		return employee; 
+	}
+	public Node getNext(){//retrives the next node in the linked list
+		return next;
+	}
+	public void setNext(Node temp){//sets the next node in the linked list. 
+		this.next=temp;
+	}
+}
+
+public class EmployeeRecord{
+	private string name;//variable used to store the name of the employee
+	private int social;//the social security number of the employee
+	private double salary;//the salary of the employee, set as a double in case of decimal values
+	
+	public EmployeeRecord(string empName, int security, double number){
+		//the constructor for the employee records, which sets the values for name, social security, and salary
+		name= empName;
+		social=security;
+		salary=number
+	}
+}
